@@ -1,0 +1,21 @@
+{
+    "name": "jdbc-sink",
+    "config": {
+      "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+      "topics": "THIRD_PARTIES_WITH_TENANT",
+      "connection.url": "jdbc:postgresql://postgres:5432/monolith_tenant1",
+      "connection.user": "postgres",
+      "connection.password": "postgres",
+      "auto.create": "true",
+      "pk.mode": "record_key",
+      "pk.fields": "id",
+      "delete.enabled": "true",
+      "transforms": "filterByTenant,replacewithtombstone",
+      "transforms.filterByTenant.type": "io.confluent.connect.transforms.Filter$Value",
+      "transforms.filterByTenant.filter.condition": "$[?(@.TENANT_NAME == \"Brightdog\")]",
+      "transforms.filterByTenant.filter.type": "include",
+      "transforms.replacewithtombstone.type": "com.example.ReplaceWithTombstone",
+      "transforms.replacewithtombstone.deleted.field.name": "__DELETED"
+    }
+}
+  

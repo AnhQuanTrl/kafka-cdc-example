@@ -1,0 +1,11 @@
+{
+  "name": "jdbc-sink",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "topics": "orders",
+    "connection.url": "jdbc:postgresql://host:port/database",
+    "auto.create": "true",
+    "pk.mode": "record_key",
+    "delete.enabled": "true"
+  }
+}

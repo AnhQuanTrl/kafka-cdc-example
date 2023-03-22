@@ -1,0 +1,14 @@
+{
+    "name": "",
+    "config": {
+      "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+      "topics": "",
+      "connection.url": "",
+      "connection.user": "",
+      "connection.password": "",
+      "auto.create": "true",
+      "pk.mode": "",
+      "pk.fields": "",
+      "delete.enabled": "true"
+    }
+}
